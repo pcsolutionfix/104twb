@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>104th TimberWolves Battalion // Holdfast: Nations at War Regiment</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=MedievalSharp&family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        timber: {
+                            950: '#060a07',
+                            900: '#0b140e',
+                            800: '#13261a',
+                            700: '#1e3a29',
+                            600: '#2d543c',
+                            accent: '#3e6f50'
+                        },
+                        regal: {
+                            gold: '#d4af37',
+                            amber: '#e6a100',
+                            bronze: '#996515',
+                            parchment: '#f4e8c1',
+                            darkcard: '#0f1411'
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        medieval: ['MedievalSharp', 'cursive'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Napoleonic Aesthetics */
+        .bg-parchment-pattern {
+            background-color: #0b140e;
+            background-image: radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 0);
+            background-size: 28px 28px;
+        }
+        
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+        }
+
+        .gold-border-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff2c5 0%, #d4af37 50%, #996515 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b140e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e3a29;
+            border: 1px solid #d4af37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        .glow-pulse {
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-parchment-pattern text-gray-200 font-sans antialiased min-h-screen flex flex-col selection:bg-regal-gold selection:text-black">
+
+    <!-- TOP ANNOUNCEMENT & DISCORD AMBIENT BANNER -->
+    <div class="bg-timber-800 border-b border-regal-gold/30 px-4 py-2 text-xs font-mono text-regal-gold/90 flex flex-wrap items-center justify-between gap-2 z-50">
+        <div class="flex items-center space-x-3">
+            <span class="flex h-2.5 w-2.5 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span>OFFICIAL RECRUITMENT ACTIVE // <strong class="text-white font-bold">104TH TIMBERWOLVES BATTALION</strong></span>
+        </div>
+        
+      
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-timber-900/95 backdrop-blur-md border-b border-regal-gold/30 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 py-3 flex items-center justify-between">
+            
+            <!-- Crest & Brand Title -->
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 bg-timber-800 border-2 border-regal-gold rounded-full flex items-center justify-center shadow-lg relative overflow-hidden">
+                    <svg class="w-7 h-7 text-regal-gold transform group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L4 7v6c0 5.25 3.75 10 8 11 4.25-1 8-5.75 8-11V7l-8-5z" fill="#13261a" stroke="#d4af37"/>
+                        <path d="M12 6l-3 4 1.5 2L9 15l3-2 3 2-1.5-3 1.5-2-3-4z" fill="#d4af37"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-cinzel font-black text-lg md:text-xl text-white tracking-wider block leading-none">104TH TIMBERWOLVES</span>
+                    <span class="font-mono text-[10px] text-regal-gold tracking-widest uppercase">Holdfast: Nations at War Regiment</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden lg:flex items-center space-x-6 font-cinzel text-xs uppercase tracking-widest text-gray-300">
+                <a href="#hero" class="hover:text-regal-gold transition-colors">Home</a>
+                <a href="#leadership" class="hover:text-regal-gold transition-colors">Command</a>
+                <a href="#units" class="hover:text-regal-gold transition-colors">Battalions</a>
+                <a href="#roster" class="hover:text-regal-gold transition-colors">Personnel Roster</a>
+                <a href="#diplomacy" class="hover:text-regal-gold transition-colors text-amber-400">Diplomacy & Blacklist</a>
+                <a href="#tactics" class="hover:text-regal-gold transition-colors">Tactics Drill</a>
+                <a href="#events" class="hover:text-regal-gold transition-colors">Line Battles</a>
+            </nav>
+
+            <!-- Enlist Header Action -->
+            <div class="hidden sm:flex items-center space-x-3">
+                <a href="https://discord.gg/104twb" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-regal-gold to-regal-amber hover:from-yellow-400 hover:to-amber-500 text-black font-cinzel font-bold text-xs uppercase px-5 py-2.5 rounded shadow-lg transition-all transform active:scale-95 gold-border-glow flex items-center space-x-2">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    <span>Enlist via Discord</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-regal-gold hover:text-white p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-timber-900 border-b border-regal-gold/30 px-6 py-4 space-y-3 font-cinzel text-sm uppercase">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-regal-gold">Home</a>
+            <a href="#leadership" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-regal-gold">High Command</a>
+            <a href="#units" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-regal-gold">Battalions & Squadrons</a>
+            <a href="#roster" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-regal-gold">Battalion Roster</a>
+            <a href="#diplomacy" onclick="toggleMobileMenu()" class="block py-2 text-amber-400 hover:text-regal-gold">Diplomacy & Blacklist</a>
+            <a href="#tactics" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-regal-gold">Tactics & Manual</a>
+            <a href="#events" onclick="toggleMobileMenu()" class="block py-2 text-gray-300 hover:text-regal-gold">Line Battles</a>
+            <a href="https://discord.gg/104twb" target="_blank" rel="noopener noreferrer" class="block bg-regal-gold text-black font-bold py-3 rounded text-center mt-2">Enlist via Discord</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative py-20 lg:py-28 overflow-hidden border-b border-regal-gold/20">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center opacity-15 mix-blend-overlay"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-timber-950 via-timber-900/90 to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 text-center space-y-8">
+            <div class="inline-flex items-center space-x-3 bg-timber-800/90 border border-regal-gold/40 px-4 py-1.5 rounded-full shadow-xl">
+                <i data-lucide="swords" class="w-4 h-4 text-regal-gold"></i>
+                <span class="font-mono text-xs uppercase text-regal-gold tracking-widest">104TH TIMBERWOLVES BATTALION // HOLDFAST REGIMENT</span>
+            </div>
+
+            <h1 class="font-cinzel text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white tracking-tight leading-tight max-w-5xl mx-auto">
+                THE HOWL OF THE <span class="gold-gradient-text">104TH WOLVES</span> ACROSS THE BATTLEFIELD
+            </h1>
+
+            <p class="font-sans text-gray-300 text-base md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
+                Combined Arms Discipline for <em>Holdfast: Nations at War</em>. Deploying across Infantry, Skirmishers, Artillery, Cavalry, Marines, and elite invite-only strike squadrons.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+                <a href="https://discord.gg/104twb" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-regal-gold via-yellow-400 to-regal-amber text-black font-cinzel font-bold px-8 py-4 rounded text-sm uppercase tracking-wider shadow-2xl transition-all transform hover:scale-105 active:scale-95 gold-border-glow flex items-center space-x-2">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <span>Enlist via Discord</span>
+                </a>
+                <button onclick="openEnlistModal()" class="bg-timber-800/90 hover:bg-timber-700 text-white border border-regal-gold/40 px-8 py-4 rounded font-cinzel text-sm uppercase tracking-wider transition-all flex items-center space-x-2">
+                    <i data-lucide="file-badge" class="w-4 h-4 text-regal-gold"></i>
+                    <span>Generate Enlistment Certificate</span>
+                </button>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="pt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="bg-timber-800/60 border border-regal-gold/30 p-4 rounded-xl text-center backdrop-blur-sm">
+                    <span class="font-mono text-2xl md:text-3xl font-bold text-regal-gold block">300+</span>
+                    <span class="font-cinzel text-xs text-gray-400 uppercase tracking-wider">Active Personnel</span>
+                </div>
+                <div class="bg-timber-800/60 border border-regal-gold/30 p-4 rounded-xl text-center backdrop-blur-sm">
+                    <span class="font-mono text-2xl md:text-3xl font-bold text-white block">5</span>
+                    <span class="font-cinzel text-xs text-gray-400 uppercase tracking-wider">Public Battalions</span>
+                </div>
+                <div class="bg-timber-800/60 border border-regal-gold/30 p-4 rounded-xl text-center backdrop-blur-sm">
+                    <span class="font-mono text-2xl md:text-3xl font-bold text-amber-400 block">2</span>
+                    <span class="font-cinzel text-xs text-gray-400 uppercase tracking-wider">Invite Squadrons</span>
+                </div>
+                <div class="bg-timber-800/60 border border-regal-gold/30 p-4 rounded-xl text-center backdrop-blur-sm">
+                    <span class="font-mono text-2xl md:text-3xl font-bold text-emerald-400 block">EU / NA</span>
+                    <span class="font-cinzel text-xs text-gray-400 uppercase tracking-wider">Timezones</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGH COMMAND & HEADS OF BATTALION LEADERSHIP SECTION -->
+    <section id="leadership" class="py-16 bg-timber-900/90 border-b border-regal-gold/20">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 space-y-12">
+            
+            <!-- High Command Header -->
+            <div class="text-center space-y-3">
+                <span class="font-mono text-xs text-regal-gold uppercase tracking-widest block">SUPREME REGIMENTAL LEADERSHIP</span>
+                <h2 class="font-cinzel text-3xl md:text-4xl font-black text-white uppercase">High Command Staff</h2>
+                <p class="text-gray-400 text-sm max-w-2xl mx-auto">The governing officers responsible for tactical strategy, coalition diplomacy, and battalion deployment.</p>
+            </div>
+
+            <!-- High Command Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- StrawHatGambit -->
+                <div class="bg-timber-800/90 border-2 border-regal-gold/60 p-6 rounded-xl relative overflow-hidden shadow-2xl gold-border-glow flex flex-col justify-between space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-regal-gold text-black font-mono font-bold text-[10px] px-2.5 py-0.5 rounded uppercase">High Command</span>
+                            <h3 class="font-cinzel font-black text-xl text-white mt-2">StrawHatGambit</h3>
+                            <p class="font-mono text-xs text-regal-gold">General of Regiment</p>
+                        </div>
+                        <div class="w-12 h-12 bg-timber-700 border border-regal-gold rounded-full flex items-center justify-center">
+                            <i data-lucide="crown" class="w-6 h-6 text-regal-gold"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-300 font-sans leading-relaxed">Supreme commander of the 104th TimberWolves Battalion across all theaters of war.</p>
+                    <div class="pt-3 border-t border-regal-gold/20 flex justify-between items-center text-[11px] font-mono text-gray-400">
+                        <span>DUTY: Regimental Head</span>
+                        <span class="text-emerald-400 font-bold">ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- Dr3amWolf -->
+                <div class="bg-timber-800/80 border border-regal-gold/40 p-6 rounded-xl space-y-4 flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-timber-700 text-regal-gold border border-regal-gold/30 font-mono text-[10px] px-2 py-0.5 rounded uppercase">High Command</span>
+                            <h3 class="font-cinzel font-bold text-xl text-white mt-2">Dr3amWolf</h3>
+                            <p class="font-mono text-xs text-regal-gold">Lieutenant General</p>
+                        </div>
+                        <div class="w-10 h-10 bg-timber-700 rounded-full flex items-center justify-center">
+                            <i data-lucide="star" class="w-5 h-5 text-regal-gold"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-300 font-sans leading-relaxed">Second-in-command overseeing operational readiness and event deployment logistics.</p>
+                    <div class="pt-3 border-t border-regal-gold/20 flex justify-between items-center text-[11px] font-mono text-gray-400">
+                        <span>DUTY: Operations Chief</span>
+                        <span class="text-emerald-400 font-bold">ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- Hogzir -->
+                <div class="bg-timber-800/80 border border-regal-gold/40 p-6 rounded-xl space-y-4 flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-timber-700 text-regal-gold border border-regal-gold/30 font-mono text-[10px] px-2 py-0.5 rounded uppercase">High Command</span>
+                            <h3 class="font-cinzel font-bold text-xl text-white mt-2">Hogzir</h3>
+                            <p class="font-mono text-xs text-regal-gold">2nd Lieutenant General</p>
+                        </div>
+                        <div class="w-10 h-10 bg-timber-700 rounded-full flex items-center justify-center">
+                            <i data-lucide="shield" class="w-5 h-5 text-regal-gold"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-300 font-sans leading-relaxed">Strategic executive officer coordinating drill maneuvers and combat drills.</p>
+                    <div class="pt-3 border-t border-regal-gold/20 flex justify-between items-center text-[11px] font-mono text-gray-400">
+                        <span>DUTY: Strategic Officer</span>
+                        <span class="text-emerald-400 font-bold">ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- Megatrans -->
+                <div class="bg-timber-800/80 border border-regal-gold/40 p-6 rounded-xl space-y-4 flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-timber-700 text-regal-gold border border-regal-gold/30 font-mono text-[10px] px-2 py-0.5 rounded uppercase">High Command</span>
+                            <h3 class="font-cinzel font-bold text-xl text-white mt-2">Megatrans</h3>
+                            <p class="font-mono text-xs text-regal-gold">Major General</p>
+                        </div>
+                        <div class="w-10 h-10 bg-timber-700 rounded-full flex items-center justify-center">
+                            <i data-lucide="award" class="w-5 h-5 text-regal-gold"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-300 font-sans leading-relaxed">Senior field commander managing battle coordination and line discipline.</p>
+                    <div class="pt-3 border-t border-regal-gold/20 flex justify-between items-center text-[11px] font-mono text-gray-400">
+                        <span>DUTY: Field Marshal</span>
+                        <span class="text-emerald-400 font-bold">ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- Friar-Tuck -->
+                <div class="bg-timber-800/80 border border-regal-gold/40 p-6 rounded-xl space-y-4 flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-timber-700 text-regal-gold border border-regal-gold/30 font-mono text-[10px] px-2 py-0.5 rounded uppercase">High Command</span>
+                            <h3 class="font-cinzel font-bold text-xl text-white mt-2">Friar-Tuck</h3>
+                            <p class="font-mono text-xs text-regal-gold">Rear Admiral</p>
+                        </div>
+                        <div class="w-10 h-10 bg-timber-700 rounded-full flex items-center justify-center">
+                            <i data-lucide="anchor" class="w-5 h-5 text-regal-gold"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-300 font-sans leading-relaxed">Commander of naval attachments, coastal sieges, and amphibious landings.</p>
+                    <div class="pt-3 border-t border-regal-gold/20 flex justify-between items-center text-[11px] font-mono text-gray-400">
+                        <span>DUTY: Naval Fleet Head</span>
+                        <span class="text-emerald-400 font-bold">ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- DaleCooper -->
+                <div class="bg-timber-800/80 border border-regal-gold/40 p-6 rounded-xl space-y-4 flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-timber-700 text-regal-gold border border-regal-gold/30 font-mono text-[10px] px-2 py-0.5 rounded uppercase">High Command</span>
+                            <h3 class="font-cinzel font-bold text-xl text-white mt-2">DaleCooper</h3>
+                            <p class="font-mono text-xs text-regal-gold">Commander</p>
+                        </div>
+                        <div class="w-10 h-10 bg-timber-700 rounded-full flex items-center justify-center">
+                            <i data-lucide="user-check" class="w-5 h-5 text-regal-gold"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-300 font-sans leading-relaxed">Recruitment and intelligence officer directing new cadet integration.</p>
+                    <div class="pt-3 border-t border-regal-gold/20 flex justify-between items-center text-[11px] font-mono text-gray-400">
+                        <span>DUTY: Personnel Officer</span>
+                        <span class="text-emerald-400 font-bold">ACTIVE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heads of Battalion Header & Grid -->
+            <div class="pt-8 border-t border-regal-gold/20 space-y-6">
+                <div class="text-center space-y-2">
+                    <span class="font-mono text-xs text-amber-400 uppercase tracking-widest block">BRANCH COMMANDERS</span>
+                    <h3 class="font-cinzel text-2xl font-bold text-white uppercase">Heads of Battalion</h3>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- OGBlue -->
+                    <div class="bg-timber-800/60 border border-regal-gold/30 p-5 rounded-xl space-y-2">
+                        <div class="font-mono text-[10px] text-regal-gold uppercase">Infantry Battalion</div>
+                        <h4 class="font-cinzel font-bold text-lg text-white">OGBlue</h4>
+                        <p class="font-mono text-xs text-amber-300">Infantry Brigadier General</p>
+                        <p class="text-xs text-gray-400 pt-2 border-t border-regal-gold/10">Leads line volley volleys and bayonet charge tactics.</p>
+                    </div>
+
+                    <!-- Smokey -->
+                    <div class="bg-timber-800/60 border border-regal-gold/30 p-5 rounded-xl space-y-2">
+                        <div class="font-mono text-[10px] text-regal-gold uppercase">Skirmish Battalion</div>
+                        <h4 class="font-cinzel font-bold text-lg text-white">Smokey</h4>
+                        <p class="font-mono text-xs text-amber-300">Skirmish Brigadier General</p>
+                        <p class="text-xs text-gray-400 pt-2 border-t border-regal-gold/10">Directs long-range marksmanship and light rifle cover.</p>
+                    </div>
+
+                    <!-- Yaboykhan -->
+                    <div class="bg-timber-800/60 border border-regal-gold/30 p-5 rounded-xl space-y-2">
+                        <div class="font-mono text-[10px] text-regal-gold uppercase">Artillery Battalion</div>
+                        <h4 class="font-cinzel font-bold text-lg text-white">Yaboykhan</h4>
+                        <p class="font-mono text-xs text-amber-300">Artillery Brigadier General</p>
+                        <p class="text-xs text-gray-400 pt-2 border-t border-regal-gold/10">Controls field cannons, siege mortars, and battery fire.</p>
+                    </div>
+
+                    <!-- LordFoodie -->
+                    <div class="bg-timber-800/60 border border-regal-gold/30 p-5 rounded-xl space-y-2">
+                        <div class="font-mono text-[10px] text-regal-gold uppercase">Cavalry Battalion</div>
+                        <h4 class="font-cinzel font-bold text-lg text-white">LordFoodie</h4>
+                        <p class="font-mono text-xs text-amber-300">Cavalry Brigadier General</p>
+                        <p class="text-xs text-gray-400 pt-2 border-t border-regal-gold/10">Commands hussar flanks, dragoon sweeps, and sabre charges.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PUBLIC BATTALIONS & INVITE-ONLY SQUADRONS -->
+    <section id="units" class="py-16 max-w-7xl mx-auto px-4 lg:px-8 space-y-12">
+        <div class="text-center space-y-3">
+            <span class="font-mono text-xs text-regal-gold uppercase tracking-widest block">REGIMENTAL STRUCTURE</span>
+            <h2 class="font-cinzel text-3xl md:text-4xl font-extrabold text-white uppercase">Battalions & Special Squadrons</h2>
+            <p class="text-gray-400 text-sm max-w-2xl mx-auto">Public battalions are open for immediate enlistment upon joining Discord. Invite-only squadrons represent specialized veteran detachments.</p>
+        </div>
+
+        <!-- Public Battalions Grid -->
+        <div class="space-y-4">
+            <h3 class="font-cinzel text-xl font-bold text-white uppercase border-l-4 border-regal-gold pl-3">
+                Public Battalions (Open to Public)
+            </h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Infantry -->
+                <div class="bg-timber-800/70 border border-regal-gold/30 p-6 rounded-xl space-y-3 relative">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono px-2 py-0.5 rounded font-bold">PUBLIC ENLISTMENT</span>
+                        <i data-lucide="shield" class="w-5 h-5 text-regal-gold"></i>
+                    </div>
+                    <h4 class="font-cinzel font-bold text-xl text-white">Infantry Battalion</h4>
+                    <p class="font-mono text-xs text-regal-gold">Head: OGBlue (Infantry Brigadier General)</p>
+                    <p class="text-xs text-gray-300 leading-relaxed">The backbone of the 104th TimberWolves. Trained in synchronized line volleys, celerity reloading, and iron bayonet charges.</p>
+                </div>
+
+                <!-- Skirmish -->
+                <div class="bg-timber-800/70 border border-regal-gold/30 p-6 rounded-xl space-y-3 relative">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono px-2 py-0.5 rounded font-bold">PUBLIC ENLISTMENT</span>
+                        <i data-lucide="crosshair" class="w-5 h-5 text-regal-gold"></i>
+                    </div>
+                    <h4 class="font-cinzel font-bold text-xl text-white">Skirmish Battalion</h4>
+                    <p class="font-mono text-xs text-regal-gold">Head: Smokey (Skirmish Brigadier General)</p>
+                    <p class="text-xs text-gray-300 leading-relaxed">Riflemen and sharpshooters utilizing foliage cover and precise long-distance sniping to pick off enemy command officers.</p>
+                </div>
+
+                <!-- Artillery -->
+                <div class="bg-timber-800/70 border border-regal-gold/30 p-6 rounded-xl space-y-3 relative">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono px-2 py-0.5 rounded font-bold">PUBLIC ENLISTMENT</span>
+                        <i data-lucide="flame" class="w-5 h-5 text-regal-gold"></i>
+                    </div>
+                    <h4 class="font-cinzel font-bold text-xl text-white">Artillery Battalion</h4>
+                    <p class="font-mono text-xs text-regal-gold">Head: Yaboykhan (Artillery Brigadier General)</p>
+                    <p class="text-xs text-gray-300 leading-relaxed">Heavy ordinance specialists mastering cannon trajectory, canister shot, and explosive siege mortar bombardments.</p>
+                </div>
+
+                <!-- Cavalry -->
+                <div class="bg-timber-800/70 border border-regal-gold/30 p-6 rounded-xl space-y-3 relative">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono px-2 py-0.5 rounded font-bold">PUBLIC ENLISTMENT</span>
+                        <i data-lucide="zap" class="w-5 h-5 text-regal-gold"></i>
+                    </div>
+                    <h4 class="font-cinzel font-bold text-xl text-white">Cavalry Battalion</h4>
+                    <p class="font-mono text-xs text-regal-gold">Head: LordFoodie (Cavalry Brigadier General)</p>
+                    <p class="text-xs text-gray-300 leading-relaxed">Fast-moving mounted dragoon and hussar shock forces built for flank disruptions and rear-guard destruction.</p>
+                </div>
+
+                <!-- Marine -->
+                <div class="bg-timber-800/70 border border-regal-gold/30 p-6 rounded-xl space-y-3 relative">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono px-2 py-0.5 rounded font-bold">PUBLIC ENLISTMENT</span>
+                        <i data-lucide="anchor" class="w-5 h-5 text-regal-gold"></i>
+                    </div>
+                    <h4 class="font-cinzel font-bold text-xl text-white">Marine Battalion</h4>
+                    <p class="font-mono text-xs text-regal-gold">Amphibious Coastal Detachment</p>
+                    <p class="text-xs text-gray-300 leading-relaxed">Specialized coastal, ship-to-ship boarding, and landing vessel assault corps fighting on sea and shore.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invite-Only Squadrons Grid -->
+        <div class="space-y-4 pt-6">
+            <h3 class="font-cinzel text-xl font-bold text-amber-300 uppercase border-l-4 border-amber-400 pl-3 flex items-center space-x-2">
+                <i data-lucide="lock" class="w-5 h-5 text-amber-400"></i>
+                <span>Invite-Only Squadrons</span>
+            </h3>
+            
+            <div class="grid sm:grid-cols-2 gap-6">
+                <!-- WolfPack Squadron -->
+                <div class="bg-gradient-to-r from-timber-900 via-timber-800 to-timber-900 border-2 border-amber-500/60 p-6 rounded-xl space-y-3 relative shadow-2xl overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-10">
+                        <i data-lucide="shield-alert" class="w-48 h-48 text-amber-400"></i>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-500/20 text-amber-300 border border-amber-500/50 text-[10px] font-mono px-2.5 py-0.5 rounded font-bold uppercase tracking-wider flex items-center space-x-1">
+                            <i data-lucide="lock" class="w-3 h-3"></i>
+                            <span>Invite Only // Restricted</span>
+                        </span>
+                        <span class="font-mono text-xs text-amber-400 font-bold">CLASSIFIED detachment</span>
+                    </div>
+                    <h4 class="font-cinzel font-black text-2xl text-white">WolfPack | Squadron</h4>
+                    <p class="text-xs text-gray-300 leading-relaxed">An elite strike squad composed of battle-tested TimberWolves veterans. Hand-picked for tactical stealth maneuvers, flank breaches, and high-stakes tournament linebattles.</p>
+                    <div class="pt-3 border-t border-amber-500/20 flex items-center justify-between font-mono text-[11px] text-amber-400">
+                        <span>REQUIREMENT: High Command Invitation</span>
+                        <span class="font-bold uppercase">Status: Locked</span>
+                    </div>
+                </div>
+
+                <!-- Vanguard Squadron -->
+                <div class="bg-gradient-to-r from-timber-900 via-timber-800 to-timber-900 border-2 border-amber-500/60 p-6 rounded-xl space-y-3 relative shadow-2xl overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-10">
+                        <i data-lucide="swords" class="w-48 h-48 text-amber-400"></i>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-500/20 text-amber-300 border border-amber-500/50 text-[10px] font-mono px-2.5 py-0.5 rounded font-bold uppercase tracking-wider flex items-center space-x-1">
+                            <i data-lucide="lock" class="w-3 h-3"></i>
+                            <span>Invite Only // Restricted</span>
+                        </span>
+                        <span class="font-mono text-xs text-amber-400 font-bold">SPEARHEAD DETACHMENT</span>
+                    </div>
+                    <h4 class="font-cinzel font-black text-2xl text-white">Vanguard Squadron</h4>
+                    <p class="text-xs text-gray-300 leading-relaxed">The point-of-spear shock force engineered for point captures, fortress breaching, and first-wave melee shock charges during major linebattles.</p>
+                    <div class="pt-3 border-t border-amber-500/20 flex items-center justify-between font-mono text-[11px] text-amber-400">
+                        <span>REQUIREMENT: Master Melee & Discipline</span>
+                        <span class="font-bold uppercase">Status: Locked</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE ROSTER & ADMIN PORTAL SECTION -->
+    <section id="roster" class="py-16 bg-timber-900 border-t border-b border-regal-gold/20">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 space-y-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-regal-gold/20 pb-6">
+                <div>
+                    <span class="font-mono text-xs text-regal-gold uppercase tracking-widest block">ADMINISTRATIVE PORTAL</span>
+                    <h2 class="font-cinzel text-3xl font-black text-white uppercase">Battalion Personnel Roster</h2>
+                    <p class="text-gray-400 text-xs mt-1">Live active roster list for 104th TimberWolves personnel.</p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <button onclick="openInductModal()" class="bg-gradient-to-r from-regal-gold to-yellow-500 hover:from-yellow-400 hover:to-amber-500 text-black font-cinzel font-bold text-xs px-4 py-2.5 rounded shadow flex items-center space-x-1.5 gold-border-glow">
+                        <i data-lucide="user-plus" class="w-4 h-4"></i>
+                        <span>Induct New Member</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search & Filters -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="relative">
+                    <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
+                    <input type="text" id="roster-search" oninput="filterRoster()" placeholder="Search member name or tag..." class="w-full bg-timber-800 border border-regal-gold/30 rounded-lg pl-9 pr-4 py-2.5 text-xs text-white focus:border-regal-gold focus:outline-none font-mono">
+                </div>
+
+                <div>
+                    <select id="roster-filter-unit" onchange="filterRoster()" class="w-full bg-timber-800 border border-regal-gold/30 rounded-lg px-3 py-2.5 text-xs text-white focus:border-regal-gold focus:outline-none font-mono">
+                        <option value="ALL">All Battalions & Squadrons</option>
+                        <option value="High Command">High Command Staff</option>
+                        <option value="Head of Battalion">Heads of Battalion</option>
+                        <option value="Infantry Battalion">Infantry Battalion</option>
+                        <option value="Skirmish Battalion">Skirmish Battalion</option>
+                        <option value="Artillery Battalion">Artillery Battalion</option>
+                        <option value="Cavalry Battalion">Cavalry Battalion</option>
+                        <option value="Marine Battalion">Marine Battalion</option>
+                        <option value="WolfPack | Squadron">WolfPack | Squadron (Invite Only)</option>
+                        <option value="Vanguard Squadron">Vanguard Squadron (Invite Only)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <select id="roster-filter-tier" onchange="filterRoster()" class="w-full bg-timber-800 border border-regal-gold/30 rounded-lg px-3 py-2.5 text-xs text-white focus:border-regal-gold focus:outline-none font-mono">
+                        <option value="ALL">All Rank Tiers</option>
+                        <option value="High Command">High Command Tiers</option>
+                        <option value="Head of Battalion">Battalion Brigadier Generals</option>
+                        <option value="Officer">Company Officers & Sergeants</option>
+                        <option value="Enlisted">Enlisted Rank & File</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Roster Stats Counters -->
+            <div class="flex flex-wrap gap-4 font-mono text-xs">
+                <div class="bg-timber-800 px-3 py-1.5 rounded border border-regal-gold/20">TOTAL MEMBERS: <span id="count-total" class="text-regal-gold font-bold">0</span></div>
+                <div class="bg-timber-800 px-3 py-1.5 rounded border border-regal-gold/20">HIGH COMMAND: <span id="count-hc" class="text-white font-bold">6</span></div>
+                <div class="bg-timber-800 px-3 py-1.5 rounded border border-regal-gold/20">HEADS OF BATTALION: <span id="count-heads" class="text-white font-bold">4</span></div>
+                <div class="bg-timber-800 px-3 py-1.5 rounded border border-regal-gold/20">INVITE SQUADRONS: <span id="count-invite" class="text-amber-400 font-bold">2</span></div>
+            </div>
+
+            <!-- Roster Output Cards -->
+            <div id="roster-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic Javascript Cards Output -->
+            </div>
+        </div>
+    </section>
+
+    <!-- DIPLOMATIC RELATIONS & BLACKLIST REGISTRY SECTION -->
+    <section id="diplomacy" class="py-16 bg-timber-950 border-t border-b border-regal-gold/30 relative">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 space-y-10">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-regal-gold/20 pb-6">
+                <div class="space-y-2">
+                    <span class="font-mono text-xs text-regal-gold uppercase tracking-widest block">DIPLOMATIC CORPS & WAR REGISTRY</span>
+                    <h2 class="font-cinzel text-3xl md:text-4xl font-black text-white uppercase">Diplomatic Relations & Blacklist</h2>
+                    <p class="text-gray-400 text-xs max-w-2xl">Official alliances, coalition pacts, and blacklisted entities barred from 104th events and coalition linebattles.</p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <button onclick="openDiploModal()" class="bg-gradient-to-r from-amber-500 to-regal-gold hover:from-yellow-400 hover:to-amber-500 text-black font-cinzel font-bold text-xs px-4 py-2.5 rounded shadow flex items-center space-x-1.5 gold-border-glow">
+                        <i data-lucide="scroll" class="w-4 h-4"></i>
+                        <span>Register Diplomatic Entry</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Controls & Filters -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <!-- Filter Tabs -->
+                <div class="flex bg-timber-900 border border-regal-gold/30 rounded-lg p-1 font-cinzel text-xs uppercase w-full sm:w-auto">
+                    <button onclick="setDiploFilter('ALL')" id="diplo-tab-all" class="px-4 py-2 rounded-md transition-colors text-black bg-regal-gold font-bold">All Entries</button>
+                    <button onclick="setDiploFilter('ALLIES')" id="diplo-tab-allies" class="px-4 py-2 rounded-md transition-colors text-gray-300 hover:text-white">Allied Regiments</button>
+                    <button onclick="setDiploFilter('BLACKLIST')" id="diplo-tab-blacklist" class="px-4 py-2 rounded-md transition-colors text-gray-300 hover:text-white">Blacklist Registry</button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative w-full sm:w-72">
+                    <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                    <input type="text" id="diplo-search" oninput="renderDiplomacy()" placeholder="Search alliance or tag..." class="w-full bg-timber-800 border border-regal-gold/30 rounded-lg pl-9 pr-4 py-2 text-xs text-white focus:border-regal-gold focus:outline-none font-mono">
+                </div>
+            </div>
+
+            <!-- Dual Grid View -->
+            <div id="diplomacy-container" class="grid lg:grid-cols-2 gap-8">
+                <!-- Dynamic Allies & Blacklist Cards Rendered Here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- NAPOLEONIC TACTICS MANUAL SIMULATOR -->
+    <section id="tactics" class="py-16 max-w-7xl mx-auto px-4 lg:px-8 space-y-8">
+        <div class="text-center space-y-3">
+            <span class="font-mono text-xs text-regal-gold uppercase tracking-widest block">DRILL & FORMATION MANUAL</span>
+            <h2 class="font-cinzel text-3xl md:text-4xl font-extrabold text-white uppercase">Holdfast Tactical Simulator</h2>
+            <p class="text-gray-400 text-sm max-w-2xl mx-auto">Master Napoleonic tactics, line battle rules, and flintlock reload timing.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Drill Tactics Selectors -->
+            <div class="space-y-3">
+                <button onclick="selectTactics('fire-rank')" id="btn-fire-rank" class="tactic-btn w-full bg-timber-800 border-2 border-regal-gold p-4 rounded-xl text-left space-y-1 transition-all">
+                    <div class="font-cinzel font-bold text-white flex items-center justify-between">
+                        <span>1. Fire By Rank</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-regal-gold"></i>
+                    </div>
+                    <p class="text-xs text-gray-400">Front rank kneels while rear rank fires volley over heads.</p>
+                </button>
+
+                <button onclick="selectTactics('square')" id="btn-square" class="tactic-btn w-full bg-timber-800/60 border border-regal-gold/20 p-4 rounded-xl text-left space-y-1 transition-all">
+                    <div class="font-cinzel font-bold text-white flex items-center justify-between">
+                        <span>2. Infantry Square</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-regal-gold"></i>
+                    </div>
+                    <p class="text-xs text-gray-400">360-degree bayonet defense wall against enemy cavalry charges.</p>
+                </button>
+
+                <button onclick="selectTactics('bayonet')" id="btn-bayonet" class="tactic-btn w-full bg-timber-800/60 border border-regal-gold/20 p-4 rounded-xl text-left space-y-1 transition-all">
+                    <div class="font-cinzel font-bold text-white flex items-center justify-between">
+                        <span>3. Cold Steel Bayonet Charge</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-regal-gold"></i>
+                    </div>
+                    <p class="text-xs text-gray-400">Synchronized charge on Officer signal to break enemy lines.</p>
+                </button>
+
+                <button onclick="selectTactics('wheel')" id="btn-wheel" class="tactic-btn w-full bg-timber-800/60 border border-regal-gold/20 p-4 rounded-xl text-left space-y-1 transition-all">
+                    <div class="font-cinzel font-bold text-white flex items-center justify-between">
+                        <span>4. Wheel Line Maneuver</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-regal-gold"></i>
+                    </div>
+                    <p class="text-xs text-gray-400">Rotating the firing line 90 degrees to respond to flank attacks.</p>
+                </button>
+            </div>
+
+            <!-- Tactical Display Visualizer -->
+            <div class="lg:col-span-2 bg-timber-800 border-2 border-regal-gold/40 rounded-2xl p-6 space-y-6 flex flex-col justify-between shadow-2xl">
+                <div>
+                    <div class="flex items-center justify-between border-b border-regal-gold/20 pb-4">
+                        <div>
+                            <span class="font-mono text-[10px] text-regal-gold uppercase tracking-widest block">TACTICAL DISPLAY</span>
+                            <h3 id="tactic-title" class="font-cinzel font-bold text-2xl text-white">Fire By Rank Formation</h3>
+                        </div>
+                        <span id="tactic-tag" class="bg-regal-gold/20 text-regal-gold border border-regal-gold/40 px-3 py-1 rounded text-xs font-mono">VOLLEY MANEUVER</span>
+                    </div>
+
+                    <p id="tactic-desc" class="text-gray-300 text-sm mt-4 leading-relaxed">
+                        The regiment forms two tightly packed lines. Front rank kneels on command ("FRONT RANK, CROUCH!"). On "FIRE!", the rear rank discharges muskets over kneeling troops, creating continuous suppressing fire.
+                    </p>
+
+                    <!-- Interactive Animated Canvas Canvas Simulation -->
+                    <div class="mt-6 bg-black/60 border border-regal-gold/20 rounded-xl p-4 text-center font-mono text-xs text-gray-400 relative min-h-[160px] flex items-center justify-center">
+                        <div id="tactic-visual" class="space-y-4">
+                            <div class="flex justify-center space-x-2 text-regal-gold font-bold">
+                                <span>[REAR RANK STANDING - MUSKETS LEVELED]</span>
+                            </div>
+                            <div class="flex justify-center space-x-2 text-emerald-400">
+                                <span>[FRONT RANK KNEELING - BAYONETS FIXED]</span>
+                            </div>
+                            <div class="text-[11px] text-amber-300">
+                                Command: "PRESENT! FIRE! LOAD!"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-regal-gold/20 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+                    <span class="text-gray-400">DRILL REQUIREMENT: Line Officer Command</span>
+                    <a href="https://discord.gg/104twb" target="_blank" rel="noopener noreferrer" class="text-regal-gold hover:underline font-bold">Join Tuesday Drill Night →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALENDAR & LINE BATTLES -->
+    <section id="events" class="py-16 bg-timber-900 border-t border-b border-regal-gold/20">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 space-y-10">
+            
+            <div class="text-center space-y-3">
+                <span class="font-mono text-xs text-regal-gold uppercase tracking-widest block">LINEBATTLE SCHEDULE</span>
+                <h2 class="font-cinzel text-3xl font-extrabold text-white uppercase">Upcoming Official Engagements</h2>
+            </div>
+
+            <!-- Countdown Timer Card -->
+            <div class="bg-gradient-to-r from-timber-800 via-timber-700 to-timber-800 border-2 border-regal-gold/50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="bg-regal-gold/20 text-regal-gold border border-regal-gold/40 px-3 py-1 rounded text-xs font-mono uppercase">NEXT OFFICIAL EVENT</span>
+                    <h3 class="font-cinzel text-2xl font-bold text-white">Grand European Coalition Linebattle</h3>
+                    <p class="text-gray-300 text-xs font-sans">200+ Player Server Engagement against allied & rival regiments.</p>
+                </div>
+
+                <!-- Live Countdown -->
+                <div class="flex items-center space-x-3 text-center font-mono">
+                    <div class="bg-black/60 border border-regal-gold/40 px-4 py-3 rounded-lg min-w-[70px]">
+                        <span id="cd-days" class="text-2xl font-bold text-regal-gold block">02</span>
+                        <span class="text-[9px] text-gray-400 uppercase">Days</span>
+                    </div>
+                    <span class="text-regal-gold font-bold text-xl">:</span>
+                    <div class="bg-black/60 border border-regal-gold/40 px-4 py-3 rounded-lg min-w-[70px]">
+                        <span id="cd-hours" class="text-2xl font-bold text-white block">06</span>
+                        <span class="text-[9px] text-gray-400 uppercase">Hours</span>
+                    </div>
+                    <span class="text-regal-gold font-bold text-xl">:</span>
+                    <div class="bg-black/60 border border-regal-gold/40 px-4 py-3 rounded-lg min-w-[70px]">
+                        <span id="cd-mins" class="text-2xl font-bold text-white block">42</span>
+                        <span class="text-[9px] text-gray-400 uppercase">Mins</span>
+                    </div>
+                </div>
+
+                <a href="https://discord.gg/104twb" target="_blank" rel="noopener noreferrer" class="bg-regal-gold hover:bg-yellow-400 text-black font-cinzel font-bold px-6 py-3 rounded uppercase text-xs transition-all gold-border-glow">
+                    RSVP on Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-regal-gold/30">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 space-y-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-regal-gold/20 pb-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-timber-800 border border-regal-gold rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-regal-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 2L4 7v6c0 5.25 3.75 10 8 11 4.25-1 8-5.75 8-11V7l-8-5z" fill="#13261a" stroke="#d4af37"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-cinzel font-bold text-white block">104TH TIMBERWOLVES BATTALION</span>
+                        <span class="font-mono text-xs text-gray-400">Holdfast: Nations at War Regiment</span>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="https://discord.gg/104twb" target="_blank" rel="noopener noreferrer" class="bg-regal-gold text-black font-cinzel font-bold px-6 py-3 rounded hover:bg-yellow-400 transition-all text-xs uppercase flex items-center space-x-2">
+                        <i data-lucide="message-square" class="w-4 h-4"></i>
+                        <span>Join Discord</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-gray-500 gap-4">
+                <div>&copy; 2026 104th TimberWolves Battalion. Holdfast: Nations at War Regiment.</div>
+                <div class="flex space-x-4">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DIPLOMACY REGISTER MODAL -->
+    <div id="diplo-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-timber-900 border-2 border-regal-gold max-w-lg w-full rounded-2xl p-6 space-y-5 relative">
+            <button onclick="closeDiploModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="space-y-1 text-center border-b border-regal-gold/20 pb-3">
+                <span class="font-mono text-xs text-regal-gold uppercase tracking-widest block">OFFICER DIPLOMACY PORTAL</span>
+                <h3 class="font-cinzel text-2xl font-bold text-white uppercase">Register Diplomatic Record</h3>
+            </div>
+
+            <form onsubmit="handleDiploSubmit(event)" class="space-y-4 font-sans text-xs">
+                <div>
+                    <label class="font-mono text-gray-300 block mb-1">RECORD TYPE *</label>
+                    <select id="diplo-type" onchange="toggleDiploFormFields()" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                        <option value="ALLY">Allied Regiment / Coalition Partner</option>
+                        <option value="BLACKLIST">Blacklisted Entity / Hostile Player</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="font-mono text-gray-300 block mb-1">ENTITY NAME / TAG *</label>
+                        <input type="text" id="diplo-name" required placeholder="e.g. 8th Royal Irish" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                    </div>
+
+                    <div>
+                        <label class="font-mono text-gray-300 block mb-1">DIPLOMATIC STATUS *</label>
+                        <input type="text" id="diplo-status-input" required placeholder="e.g. Blood Oath Allies OR Permanent Ban" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                    </div>
+                </div>
+
+                <div id="ally-fields" class="space-y-3">
+                    <div>
+                        <label class="font-mono text-gray-300 block mb-1">REPRESENTATIVE LIAISON OFFICER</label>
+                        <input type="text" id="diplo-officer" placeholder="e.g. General O'Malley" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                    </div>
+                    <div>
+                        <label class="font-mono text-gray-300 block mb-1">JOINT VICTORIES & SHARED EVENTS</label>
+                        <input type="number" id="diplo-victories" placeholder="12" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                    </div>
+                </div>
+
+                <div id="blacklist-fields" class="space-y-3 hidden">
+                    <div>
+                        <label class="font-mono text-gray-300 block mb-1">VIOLATION CATEGORY</label>
+                        <select id="diplo-violation" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                            <option value="Linebattle Rule Breaking">Linebattle Rule Breaking</option>
+                            <option value="Toxic & Unsportsmanlike Behavior">Toxic & Unsportsmanlike Behavior</option>
+                            <option value="Spying & Intel Theft">Spying & Intel Theft</option>
+                            <option value="Ramboing & Teamkilling">Ramboing & Teamkilling</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-mono text-gray-300 block mb-1">INCIDENT DETAILS & REASON</label>
+                        <textarea id="diplo-reason" rows="2" placeholder="Repeated intentional teamkilling during Saturday EU Linebattle..." class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-regal-gold to-yellow-500 text-black font-cinzel font-bold py-3 rounded text-xs uppercase tracking-wider gold-border-glow">
+                    Save Record to Diplomatic Ledger
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- INDUCT NEW MEMBER MODAL -->
+    <div id="induct-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-timber-900 border-2 border-regal-gold max-w-lg w-full rounded-2xl p-6 space-y-5 relative">
+            <button onclick="closeInductModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="space-y-1 text-center border-b border-regal-gold/20 pb-3">
+                <span class="font-mono text-xs text-regal-gold uppercase tracking-widest block">ADMINISTRATIVE PORTAL</span>
+                <h3 class="font-cinzel text-2xl font-bold text-white uppercase">Induct New Regiment Member</h3>
+            </div>
+
+            <form onsubmit="handleInductSubmit(event)" class="space-y-4 font-sans text-xs">
+                <div>
+                    <label class="font-mono text-gray-300 block mb-1">PLAYER CALLSIGN / STEAM NAME *</label>
+                    <input type="text" id="induct-name" required placeholder="e.g. Wolf_Marksman" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="font-mono text-gray-300 block mb-1">ASSIGNED UNIT *</label>
+                        <select id="induct-unit" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                            <option value="Infantry Battalion">Infantry Battalion</option>
+                            <option value="Skirmish Battalion">Skirmish Battalion</option>
+                            <option value="Artillery Battalion">Artillery Battalion</option>
+                            <option value="Cavalry Battalion">Cavalry Battalion</option>
+                            <option value="Marine Battalion">Marine Battalion</option>
+                            <option value="WolfPack | Squadron">WolfPack | Squadron (Invite Only)</option>
+                            <option value="Vanguard Squadron">Vanguard Squadron (Invite Only)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="font-mono text-gray-300 block mb-1">RANK TIER *</label>
+                        <select id="induct-rank" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                            <option value="Recruit">Cadet Recruit</option>
+                            <option value="Private">Private</option>
+                            <option value="Corporal">Corporal</option>
+                            <option value="Sergeant">Sergeant</option>
+                            <option value="Lieutenant">Lieutenant</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="font-mono text-gray-300 block mb-1">AWARD INITIAL MEDAL / RIBBON</label>
+                    <input type="text" id="induct-medal" placeholder="e.g. Enlistment Ribbon" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-regal-gold to-yellow-500 text-black font-cinzel font-bold py-3 rounded text-xs uppercase tracking-wider gold-border-glow">
+                    Add Member to Active Roster
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ENLISTMENT CERTIFICATE MODAL -->
+    <div id="enlist-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-timber-900 border-2 border-regal-gold max-w-xl w-full rounded-2xl p-6 md:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeEnlistModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="space-y-1 text-center border-b border-regal-gold/20 pb-4">
+                <span class="font-mono text-xs text-regal-gold uppercase tracking-widest block">RECRUITMENT OFFICE</span>
+                <h3 class="font-cinzel text-2xl font-bold text-white uppercase">Enlistment Certificate Generator</h3>
+            </div>
+
+            <!-- Form -->
+            <form id="enlist-form" onsubmit="handleEnlistSubmit(event)" class="space-y-4 font-sans text-xs">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label class="font-mono text-gray-300">CALLSIGN / STEAM NAME *</label>
+                        <input type="text" id="enlist-name" required placeholder="e.g. Cadet_Huntsman" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="font-mono text-gray-300">DISCORD HANDLE *</label>
+                        <input type="text" id="enlist-discord" required placeholder="e.g. wolf_104" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label class="font-mono text-gray-300">PREFERRED BATTALION *</label>
+                        <select id="enlist-role" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                            <option value="Infantry Battalion">Infantry Battalion</option>
+                            <option value="Skirmish Battalion">Skirmish Battalion</option>
+                            <option value="Artillery Battalion">Artillery Battalion</option>
+                            <option value="Cavalry Battalion">Cavalry Battalion</option>
+                            <option value="Marine Battalion">Marine Battalion</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="font-mono text-gray-300">TIMEZONE / REGION</label>
+                        <select id="enlist-region" class="w-full bg-timber-800 border border-regal-gold/30 rounded p-2.5 text-white focus:border-regal-gold focus:outline-none font-mono">
+                            <option value="Europe / UK (EU)">Europe / UK (EU)</option>
+                            <option value="North America (NA)">North America (NA)</option>
+                            <option value="Oceania / Asia (OCE)">Oceania / Asia (OCE)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-regal-gold to-yellow-500 text-black font-cinzel font-bold py-3 rounded text-xs uppercase tracking-wider gold-border-glow">
+                    Generate Official Certificate
+                </button>
+            </form>
+
+            <!-- Generated Certificate Card -->
+            <div id="enlist-pass-card" class="hidden bg-timber-800 border-2 border-regal-gold p-6 rounded-xl space-y-4 text-center">
+                <div class="text-regal-gold font-mono text-xs uppercase tracking-widest">OFFICIAL 104TH TIMBERWOLVES ENLISTMENT PAPERS</div>
+                <div class="w-16 h-16 mx-auto bg-timber-700 rounded-full border border-regal-gold flex items-center justify-center">
+                    <i data-lucide="award" class="w-8 h-8 text-regal-gold"></i>
+                </div>
+                <div>
+                    <h4 id="pass-name" class="font-cinzel font-bold text-xl text-white">Cadet Wolf</h4>
+                    <p id="pass-role" class="font-mono text-xs text-regal-gold">Infantry Battalion // EU Region</p>
+                </div>
+                <div class="bg-black/40 p-3 rounded font-mono text-[11px] text-gray-300">
+                    STATUS: <span class="text-emerald-400 font-bold">CERTIFICATE GENERATED</span> | BATTALION PASS: <span id="pass-id" class="text-regal-gold">#104-9842</span>
+                </div>
+                <a href="https://discord.gg/104twb" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-cinzel font-bold py-3 rounded text-xs uppercase flex items-center justify-center space-x-2 block">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <span>Final Step: Complete Induction at discord.gg/104twb</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // INITIALIZE LUCIDE ICONS
+        document.addEventListener("DOMContentLoaded", () => {
+            lucide.createIcons();
+            renderRoster();
+            renderDiplomacy();
+        });
+
+        // DIPLOMATIC & BLACKLIST STATE
+        let diplomacyData = [
+            // Allies
+            { id: 1, type: "ALLY", name: "8th King's Royal Irish", status: "Blood Oath Allies", officer: "General O'Malley", victories: 24, link: "https://discord.gg/104twb" },
+            { id: 2, type: "ALLY", name: "95th Rifles Detachment", status: "Coalition Partner", officer: "Col. Vance", victories: 18, link: "https://discord.gg/104twb" },
+            { id: 3, type: "ALLY", name: "1st Prussian Guard", status: "Non-Aggression Pact", officer: "Major Von Berg", victories: 9, link: "https://discord.gg/104twb" },
+            { id: 4, type: "ALLY", name: "Royal Scots Greys", status: "Joint Event Partner", officer: "Captain Campbell", victories: 14, link: "https://discord.gg/104twb" },
+
+            // Blacklist
+            { id: 5, type: "BLACKLIST", name: "Rogue Mercenaries Corps", status: "PERMANENT BAN", category: "Linebattle Rule Breaking", caseId: "CASE-104-089", reason: "Repeated deliberate out-of-bounds line shooting during coalition events.", date: "2026-02-14" },
+            { id: 6, type: "BLACKLIST", name: "Renegade_Trooper99", status: "ENGAGE ON SIGHT", category: "Ramboing & Teamkilling", caseId: "CASE-104-102", reason: "Intentional teamkilling of artillery officers and firing siege guns into friendly ranks.", date: "2026-03-01" },
+            { id: 7, type: "BLACKLIST", name: "Vanguard Spies Guild", status: "UNCONDITIONAL HOSTILITY", category: "Spying & Intel Theft", caseId: "CASE-104-118", reason: "Leaking private Discord linebattle spawn coordinates to enemy commander.", date: "2026-03-19" }
+        ];
+
+        let currentDiploFilter = 'ALL';
+
+        function setDiploFilter(filter) {
+            currentDiploFilter = filter;
+            document.querySelectorAll('#diplo-tab-all, #diplo-tab-allies, #diplo-tab-blacklist').forEach(btn => {
+                btn.className = "px-4 py-2 rounded-md transition-colors text-gray-300 hover:text-white";
+            });
+
+            if (filter === 'ALL') {
+                document.getElementById('diplo-tab-all').className = "px-4 py-2 rounded-md transition-colors text-black bg-regal-gold font-bold";
+            } else if (filter === 'ALLIES') {
+                document.getElementById('diplo-tab-allies').className = "px-4 py-2 rounded-md transition-colors text-black bg-emerald-400 font-bold";
+            } else if (filter === 'BLACKLIST') {
+                document.getElementById('diplo-tab-blacklist').className = "px-4 py-2 rounded-md transition-colors text-white bg-rose-700 font-bold";
+            }
+
+            renderDiplomacy();
+        }
+
+        function renderDiplomacy() {
+            const container = document.getElementById('diplomacy-container');
+            const searchVal = document.getElementById('diplo-search').value.toLowerCase();
+
+            const filtered = diplomacyData.filter(d => {
+                const matchType = (currentDiploFilter === 'ALL') || (d.type === currentDiploFilter);
+                const matchSearch = d.name.toLowerCase().includes(searchVal) || d.status.toLowerCase().includes(searchVal);
+                return matchType && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full bg-timber-800/40 border border-regal-gold/20 p-8 rounded-xl text-center text-gray-400 font-mono text-xs">
+                        No diplomatic records found matching parameters.
+                    </div>
+                `;
+                return;
+            }
+
+            const allies = filtered.filter(d => d.type === 'ALLY');
+            const blacklist = filtered.filter(d => d.type === 'BLACKLIST');
+
+            let html = '';
+
+            // Render Allied Section Column
+            if (currentDiploFilter === 'ALL' || currentDiploFilter === 'ALLIES') {
+                html += `
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-2 border-b border-emerald-500/30 pb-3">
+                            <i data-lucide="handshake" class="w-5 h-5 text-emerald-400"></i>
+                            <h3 class="font-cinzel font-bold text-xl text-white uppercase">Allied Regiments & Coalitions</h3>
+                            <span class="bg-emerald-500/20 text-emerald-400 font-mono text-xs px-2 py-0.5 rounded font-bold ml-auto">${allies.length} ALLIES</span>
+                        </div>
+                        <div class="space-y-4">
+                            ${allies.map(a => `
+                                <div class="bg-timber-800/90 border-2 border-emerald-500/40 hover:border-emerald-400 p-5 rounded-xl space-y-3 relative shadow-xl transition-all">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono px-2 py-0.5 rounded uppercase font-bold">${a.status}</span>
+                                            <h4 class="font-cinzel font-bold text-xl text-white mt-1.5">${a.name}</h4>
+                                        </div>
+                                        <div class="w-8 h-8 bg-timber-700 border border-emerald-400 rounded-full flex items-center justify-center">
+                                            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-2 font-mono text-xs bg-black/30 p-2.5 rounded border border-emerald-500/10">
+                                        <div><span class="text-gray-400">LIAISON:</span> <span class="text-white">${a.officer}</span></div>
+                                        <div><span class="text-gray-400">JOINT BATTLES:</span> <span class="text-regal-gold font-bold">${a.victories}</span></div>
+                                    </div>
+                                    <div class="flex justify-between items-center text-xs font-mono pt-1">
+                                        <a href="${a.link}" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline flex items-center space-x-1 font-bold">
+                                            <span>Diplomacy Discord</span>
+                                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                                        </a>
+                                        <button onclick="deleteDiploRecord(${a.id})" class="text-rose-400 hover:underline text-[10px]">REVOKE ALLIANCE</button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Render Blacklist Section Column
+            if (currentDiploFilter === 'ALL' || currentDiploFilter === 'BLACKLIST') {
+                html += `
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-2 border-b border-rose-500/30 pb-3">
+                            <i data-lucide="skull" class="w-5 h-5 text-rose-500"></i>
+                            <h3 class="font-cinzel font-bold text-xl text-white uppercase">Blacklist & Dishonored Entities</h3>
+                            <span class="bg-rose-500/20 text-rose-400 font-mono text-xs px-2 py-0.5 rounded font-bold ml-auto">${blacklist.length} BLACKLISTED</span>
+                        </div>
+                        <div class="space-y-4">
+                            ${blacklist.map(b => `
+                                <div class="bg-timber-900 border-2 border-rose-600/60 p-5 rounded-xl space-y-3 relative shadow-2xl overflow-hidden bg-gradient-to-r from-timber-900 via-rose-950/20 to-timber-900">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <span class="bg-rose-600/30 text-rose-300 border border-rose-500/60 text-[10px] font-mono px-2 py-0.5 rounded uppercase font-bold tracking-wider">${b.status}</span>
+                                            <h4 class="font-cinzel font-bold text-xl text-white mt-1.5">${b.name}</h4>
+                                        </div>
+                                        <span class="font-mono text-[10px] text-rose-400 border border-rose-500/30 bg-rose-950/40 px-2 py-0.5 rounded">${b.caseId}</span>
+                                    </div>
+                                    <p class="text-xs text-gray-300 leading-relaxed font-sans bg-black/40 p-2.5 rounded border border-rose-500/20">
+                                        <strong class="text-rose-400 font-mono text-[11px] block uppercase">VIOLATION: ${b.category}</strong>
+                                        ${b.reason}
+                                    </p>
+                                    <div class="flex justify-between items-center text-[11px] font-mono text-gray-400 pt-1">
+                                        <span>DATE LOGGED: ${b.date}</span>
+                                        <button onclick="deleteDiploRecord(${b.id})" class="text-emerald-400 hover:underline text-[10px]">PARDON / REMOVE</button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function openDiploModal() {
+            document.getElementById('diplo-modal').classList.remove('hidden');
+        }
+
+        function closeDiploModal() {
+            document.getElementById('diplo-modal').classList.add('hidden');
+        }
+
+        function toggleDiploFormFields() {
+            const type = document.getElementById('diplo-type').value;
+            if (type === 'ALLY') {
+                document.getElementById('ally-fields').classList.remove('hidden');
+                document.getElementById('blacklist-fields').classList.add('hidden');
+            } else {
+                document.getElementById('ally-fields').classList.add('hidden');
+                document.getElementById('blacklist-fields').classList.remove('hidden');
+            }
+        }
+
+        function handleDiploSubmit(e) {
+            e.preventDefault();
+            const type = document.getElementById('diplo-type').value;
+            const name = document.getElementById('diplo-name').value;
+            const status = document.getElementById('diplo-status-input').value;
+
+            const newId = diplomacyData.length ? Math.max(...diplomacyData.map(d => d.id)) + 1 : 1;
+
+            if (type === 'ALLY') {
+                diplomacyData.push({
+                    id: newId,
+                    type: 'ALLY',
+                    name: name,
+                    status: status,
+                    officer: document.getElementById('diplo-officer').value || "Diplomatic Officer",
+                    victories: parseInt(document.getElementById('diplo-victories').value) || 0,
+                    link: "https://discord.gg/104twb"
+                });
+            } else {
+                diplomacyData.push({
+                    id: newId,
+                    type: 'BLACKLIST',
+                    name: name,
+                    status: status,
+                    category: document.getElementById('diplo-violation').value,
+                    caseId: `CASE-104-${Math.floor(100 + Math.random() * 900)}`,
+                    reason: document.getElementById('diplo-reason').value || "Violation of linebattle protocol.",
+                    date: new Date().toISOString().split('T')[0]
+                });
+            }
+
+            closeDiploModal();
+            renderDiplomacy();
+            alert(`Diplomatic ledger entry for '${name}' registered successfully!`);
+        }
+
+        function deleteDiploRecord(id) {
+            if (confirm("Are you sure you want to alter/remove this diplomatic ledger entry?")) {
+                diplomacyData = diplomacyData.filter(d => d.id !== id);
+                renderDiplomacy();
+            }
+        }
+
+        // BATTALION ROSTER STATE
+        let rosterMembers = [
+            // High Command Staff
+            { id: 1, name: "StrawHatGambit", rank: "General of Regiment", tier: "High Command", unit: "High Command", medal: "Order of the Wolf Cross", status: "Active" },
+            { id: 2, name: "Dr3amWolf", rank: "Lieutenant General", tier: "High Command", unit: "High Command", medal: "Executive Gold Star", status: "Active" },
+            { id: 3, name: "Hogzir", rank: "2nd Lieutenant General", tier: "High Command", unit: "High Command", medal: "Strategic Command Ribbon", status: "Active" },
+            { id: 4, name: "Megatrans", rank: "Major General", tier: "High Command", unit: "High Command", medal: "Field Leadership Cross", status: "Active" },
+            { id: 5, name: "Friar-Tuck", rank: "Rear Admiral", tier: "High Command", unit: "High Command", medal: "Naval Service Cross", status: "Active" },
+            { id: 6, name: "DaleCooper", rank: "Commander", tier: "High Command", unit: "High Command", medal: "Recruitment Star", status: "Active" },
+
+            // Heads of Battalion
+            { id: 7, name: "OGBlue", rank: "Infantry Brigadier General", tier: "Head of Battalion", unit: "Infantry Battalion", medal: "Front Line Star", status: "Active" },
+            { id: 8, name: "Smokey", rank: "Skirmish Brigadier General", tier: "Head of Battalion", unit: "Skirmish Battalion", medal: "Sharpshooter Medal", status: "Active" },
+            { id: 9, name: "Yaboykhan", rank: "Artillery Brigadier General", tier: "Head of Battalion", unit: "Artillery Battalion", medal: "Master Canoneer Badge", status: "Active" },
+            { id: 10, name: "LordFoodie", rank: "Cavalry Brigadier General", tier: "Head of Battalion", unit: "Cavalry Battalion", medal: "Cavalry Sabres", status: "Active" },
+
+            // Invite Squadrons & Officers & Enlisted
+            { id: 11, name: "Vanguard_Alpha", rank: "Captain", tier: "Officer", unit: "WolfPack | Squadron", medal: "WolfPack Vanguard Pin", status: "Active" },
+            { id: 12, name: "IronHide_104", rank: "Sergeant Major", tier: "Officer", unit: "Vanguard Squadron", medal: "Breacher Medal", status: "Active" },
+            { id: 13, name: "Flintlock_Jack", rank: "Sergeant", tier: "Officer", unit: "Infantry Battalion", medal: "Volley Badge", status: "Active" },
+            { id: 14, name: "Oakley_Rifle", rank: "Corporal", tier: "Enlisted", unit: "Skirmish Battalion", medal: "Marksman Ribbon", status: "Active" },
+            { id: 15, name: "Powder_Sam", rank: "Private", tier: "Enlisted", unit: "Artillery Battalion", medal: "Service Ribbon", status: "Active" }
+        ];
+
+        function renderRoster() {
+            const container = document.getElementById('roster-container');
+            const searchVal = document.getElementById('roster-search').value.toLowerCase();
+            const unitVal = document.getElementById('roster-filter-unit').value;
+            const tierVal = document.getElementById('roster-filter-tier').value;
+
+            const filtered = rosterMembers.filter(m => {
+                const matchSearch = m.name.toLowerCase().includes(searchVal) || m.rank.toLowerCase().includes(searchVal);
+                const matchUnit = (unitVal === 'ALL') || (m.unit === unitVal);
+                const matchTier = (tierVal === 'ALL') || (m.tier === tierVal);
+                return matchSearch && matchUnit && matchTier;
+            });
+
+            // Update Counts
+            document.getElementById('count-total').innerText = rosterMembers.length;
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full bg-timber-800/40 border border-regal-gold/20 p-8 rounded-xl text-center text-gray-400 font-mono text-xs">
+                        No members matching current filters found.
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(m => {
+                const isInviteOnly = m.unit === 'WolfPack | Squadron' || m.unit === 'Vanguard Squadron';
+                return `
+                    <div class="bg-timber-800/80 border ${isInviteOnly ? 'border-amber-500/60 bg-gradient-to-b from-timber-800 to-amber-950/20' : 'border-regal-gold/30'} p-5 rounded-xl space-y-3 relative group">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded ${isInviteOnly ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold' : 'bg-regal-gold/10 text-regal-gold border border-regal-gold/20'}">
+                                    ${m.unit}
+                                </span>
+                                <h4 class="font-cinzel font-bold text-lg text-white mt-1">${m.name}</h4>
+                                <p class="font-mono text-xs text-amber-300">${m.rank}</p>
+                            </div>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">${m.status}</span>
+                        </div>
+
+                        <div class="pt-2 border-t border-regal-gold/10 flex items-center space-x-2 text-xs text-gray-300">
+                            <i data-lucide="award" class="w-4 h-4 text-regal-gold"></i>
+                            <span class="font-mono text-[11px]">${m.medal || 'Service Ribbon'}</span>
+                        </div>
+
+                        <!-- Admin Actions -->
+                        <div class="pt-3 border-t border-regal-gold/10 flex items-center justify-between gap-2 font-mono text-[10px]">
+                            <button onclick="promoteMember(${m.id})" class="text-emerald-400 hover:underline">PROMOTE</button>
+                            <button onclick="awardMedal(${m.id})" class="text-regal-gold hover:underline">AWARD MEDAL</button>
+                            <button onclick="dischargeMember(${m.id})" class="text-rose-400 hover:underline">REMOVE</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function filterRoster() {
+            renderRoster();
+        }
+
+        // MEMBER MANAGEMENT
+        function promoteMember(id) {
+            const member = rosterMembers.find(m => m.id === id);
+            if (member) {
+                member.rank = "Promoted " + member.rank;
+                renderRoster();
+            }
+        }
+
+        function awardMedal(id) {
+            const member = rosterMembers.find(m => m.id === id);
+            if (member) {
+                const medal = prompt("Enter medal or ribbon name:", "Oak Leaf Citation");
+                if (medal) {
+                    member.medal = medal;
+                    renderRoster();
+                }
+            }
+        }
+
+        function dischargeMember(id) {
+            if (confirm("Are you sure you wish to discharge this member from the roster?")) {
+                rosterMembers = rosterMembers.filter(m => m.id !== id);
+                renderRoster();
+            }
+        }
+
+        // INDUCTION MODAL LOGIC
+        function openInductModal() {
+            document.getElementById('induct-modal').classList.remove('hidden');
+        }
+
+        function closeInductModal() {
+            document.getElementById('induct-modal').classList.add('hidden');
+        }
+
+        function handleInductSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('induct-name').value;
+            const unit = document.getElementById('induct-unit').value;
+            const rank = document.getElementById('induct-rank').value;
+            const medal = document.getElementById('induct-medal').value || "Enlistment Badge";
+
+            const newId = rosterMembers.length ? Math.max(...rosterMembers.map(m => m.id)) + 1 : 1;
+            
+            rosterMembers.push({
+                id: newId,
+                name: name,
+                rank: rank,
+                tier: rank.includes('General') ? 'High Command' : 'Enlisted',
+                unit: unit,
+                medal: medal,
+                status: "Active"
+            });
+
+            closeInductModal();
+            renderRoster();
+            alert(`Member ${name} successfully inducted into the 104th ${unit}!`);
+        }
+
+        // TACTICS MANUAL DISPLAY SWITCHER
+        const tacticsData = {
+            'fire-rank': {
+                title: "Fire By Rank Formation",
+                tag: "VOLLEY MANEUVER",
+                desc: "The regiment forms two tightly packed lines. Front rank kneels on command ('FRONT RANK, CROUCH!'). On 'FIRE!', the rear rank discharges muskets over kneeling troops, creating continuous suppressing fire.",
+                visual: `
+                    <div class="space-y-2">
+                        <div class="text-regal-gold font-bold">[REAR RANK STANDING - MUSKETS LEVELED]</div>
+                        <div class="text-emerald-400 font-bold">[FRONT RANK KNEELING - BAYONETS FIXED]</div>
+                        <div class="text-amber-300 text-[11px]">Command: "READY! PRESENT! FIRE!"</div>
+                    </div>
+                `
+            },
+            'square': {
+                title: "Infantry Square Formation",
+                tag: "DEFENSIVE WALL",
+                desc: "Formed when enemy cavalry threatens the flank. 4 outer walls face outwards with fixed bayonets while Officers and Musicians stay enclosed in the center.",
+                visual: `
+                    <div class="space-y-2">
+                        <div class="text-amber-400 font-bold">[OUTER SQUARED WALL - 360° BAYONETS]</div>
+                        <div class="text-regal-gold">[INNER COMMAND & FIFERS PROTECTED]</div>
+                        <div class="text-emerald-400 text-[11px]">Cavalry Charge Deflection Active</div>
+                    </div>
+                `
+            },
+            'bayonet': {
+                title: "Cold Steel Bayonet Charge",
+                tag: "MELEE ASSAULT",
+                desc: "When enemy lines break discipline or reload, the Officer shouts 'CHARGE BAYONETS!'. All personnel sprint in unison into hand-to-hand melee combat.",
+                visual: `
+                    <div class="space-y-2">
+                        <div class="text-rose-400 font-bold font-cinzel text-base">>>> FULL LINE CHARGING FORWARD >>></div>
+                        <div class="text-regal-gold text-[11px]">Command: "DOUBLE QUICK MARCH! CHARGE!"</div>
+                    </div>
+                `
+            },
+            'wheel': {
+                title: "Wheel Line Rotation",
+                tag: "FLANK REORIENT",
+                desc: "Pivot the entire battalion firing line 90 degrees left or right while maintaining tight elbow-to-elbow shoulder alignment.",
+                visual: `
+                    <div class="space-y-2">
+                        <div class="text-emerald-400 font-bold">[LINE PIVOTING 90° TO RE-FACE ENEMY FLANK]</div>
+                        <div class="text-amber-300 text-[11px]">Command: "RIGHT WHEEL, MARCH!"</div>
+                    </div>
+                `
+            }
+        };
+
+        function selectTactics(key) {
+            document.querySelectorAll('.tactic-btn').forEach(btn => {
+                btn.classList.remove('border-2', 'border-regal-gold');
+                btn.classList.add('border', 'border-regal-gold/20');
+            });
+            const selectedBtn = document.getElementById(`btn-${key}`);
+            if (selectedBtn) {
+                selectedBtn.classList.remove('border', 'border-regal-gold/20');
+                selectedBtn.classList.add('border-2', 'border-regal-gold');
+            }
+
+            const data = tacticsData[key];
+            if (data) {
+                document.getElementById('tactic-title').innerText = data.title;
+                document.getElementById('tactic-tag').innerText = data.tag;
+                document.getElementById('tactic-desc').innerText = data.desc;
+                document.getElementById('tactic-visual').innerHTML = data.visual;
+            }
+        }
+
+        // ENLISTMENT MODAL LOGIC
+        function openEnlistModal() {
+            document.getElementById('enlist-modal').classList.remove('hidden');
+        }
+
+        function closeEnlistModal() {
+            document.getElementById('enlist-modal').classList.add('hidden');
+        }
+
+        function handleEnlistSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('enlist-name').value;
+            const role = document.getElementById('enlist-role').value;
+            const region = document.getElementById('enlist-region').value;
+
+            document.getElementById('pass-name').innerText = `Cadet ${name}`;
+            document.getElementById('pass-role').innerText = `${role} // ${region}`;
+            document.getElementById('pass-id').innerText = `#104-${Math.floor(1000 + Math.random() * 9000)}`;
+
+            document.getElementById('enlist-form').classList.add('hidden');
+            document.getElementById('enlist-pass-card').classList.remove('hidden');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // SYNTHESIZED AUDIO SIMULATOR
+        let audioCtx = null;
+        let isAudioPlaying = false;
+
+        function toggleNapoleonicAudio() {
+            const statusText = document.getElementById('audio-status-text');
+            const icon = document.getElementById('audio-icon');
+
+            if (!isAudioPlaying) {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                isAudioPlaying = true;
+                statusText.innerText = "Fife & Drum Active";
+                icon.classList.add('text-emerald-400');
+                playSimpleDrumLoop();
+            } else {
+                isAudioPlaying = false;
+                statusText.innerText = "Play Fife & Drum Ambient";
+                icon.classList.remove('text-emerald-400');
+            }
+        }
+
+        function playSimpleDrumLoop() {
+            if (!isAudioPlaying || !audioCtx) return;
+            
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(120, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
+            
+            gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
+            
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.12);
+
+            setTimeout(() => {
+                if (isAudioPlaying) playSimpleDrumLoop();
+            }, 550);
+        }
+    </script>
+</body>
+</html>
